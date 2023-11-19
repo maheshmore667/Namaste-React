@@ -1,0 +1,14 @@
+{
+  "name": "namaste-react-inception",
+  "version": "1.0.0",
+  "description": "React App created by Mahesh",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Mahesh More",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.10.3"
+  }
+}
