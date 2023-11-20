@@ -2,8 +2,9 @@
   "name": "namaste-react-inception",
   "version": "1.0.0",
   "description": "React App created by Mahesh",
-  "main": "App.js",
   "scripts": {
+    "start" : "parcel index.html",
+    "build" : "parcel build index.html",
     "test": "jest"
   },
   "author": "Mahesh More",
