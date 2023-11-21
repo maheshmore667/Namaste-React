@@ -1,44 +1,20 @@
 import React from "react";
 import  ReactDOM  from "react-dom/client";
+import logo from "./logo.png"
 
-const heading = React.createElement(
-  "h1",
-  { id: "heading" },
-  "Namste React by Mahesh!"
-);
-
-//nested element creation
-const nestedElements = React.createElement(
-  "div",
-  { id: "parent" },
-  [React.createElement(
-    "div",
-    { id: "child1" },
-    [React.createElement(
-      "h1",
-      { id: "nestedheading1" },
-      "Namste React by Mahesh of nested elements!"
-    ),React.createElement(
-        "h2",
-        { id: "nestedheading2" },
-        "Namste React by Mahesh of nested elements!"
-      )]
-  ),
-  React.createElement(
-    "div",
-    { id: "child2" },
-    [React.createElement(
-      "h1",
-      { id: "nestedheading3" },
-      "Namste React by Mahesh of nested elements!"
-    ),React.createElement(
-        "h2",
-        { id: "nestedheading4" },
-        "Namste React by Mahesh of nested elements!"
-      )]
+const SearchBarComponent = () =>{
+  return (
+    <input type="text" style={{"padding":"5px", "borderRadius" : "8px", "border" : "2px solid black"}} placeholder="search text here" />
   )
-]
-);
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(nestedElements);
+}
+const HeadingComponent = ()=>{
+  return(
+    <div className="container-fluid" style={{ "border" : "2px solid red", "display" : "flex", "borderRadius" : "8px"}}>
+      <div id="logoSection"><img style={{"height": "50px", "width":"50px"}} src={logo}/></div>
+      <div id="searchSection" style={{"margin" : "auto", "marginTop" : "5px", "marginBottom" : "5px"}}><SearchBarComponent /></div>
+      <div id="logoSection" style={{"display":"flex", "flexWrap":"wrap","alignItems":"center"}}><i className="glyphicon glyphicon-user" style={{"fontSize" : "20px"}}></i></div>
+    </div>
+  )
+}
+const root = ReactDOM.createRoot(document.getElementById("root"))
+root.render(<HeadingComponent /> );
