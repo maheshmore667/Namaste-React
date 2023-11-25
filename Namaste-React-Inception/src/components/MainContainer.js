@@ -13,9 +13,10 @@ const MainContainer = () => {
 
   const fetchRestaurantList = async () => {
     var data = await fetch(
-      "https://www.swiggy.com/mapi/homepage/getCards?lat=18.5538241&lng=73.9476689"
+      "https://corsproxy.io/?https://www.swiggy.com/mapi/homepage/getCards?lat=18.5538241&lng=73.9476689"
     );
     data = await data.json();
+    console.log(data);
     setRestList(
       data?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
         ?.restaurants
