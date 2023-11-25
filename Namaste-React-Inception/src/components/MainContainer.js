@@ -19,10 +19,8 @@ const MainContainer = () => {
     setRestList(restList?.filter((res)=> res?.info?.avgRating > 4));
   }
 
-  if(restList.length===0) {
-      return (<ShimmerUI />)
-  }
-  return (
+  //conditional rendering
+  return restList.length===0 ? <ShimmerUI /> : (
     <div className="body-content">
       <button className="btn top-res" onClick={filterRestList}>Top Restaurants <i className="fa fa-filter"></i></button>
       <div className="main-container">
