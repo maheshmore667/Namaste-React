@@ -1,6 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
-import { restList as restListData } from "../Utils/mockData";
 import { useEffect, useState } from "react";
+import ShimmerUI from "./ShimmerUI";
 
 const MainContainer = () => {
   const [restList, setRestList] = useState([]);
@@ -20,7 +20,7 @@ const MainContainer = () => {
   }
 
   if(restList.length===0) {
-      return (<h1>No Data here..</h1>)
+      return (<ShimmerUI />)
   }
   return (
     <div className="body-content">
