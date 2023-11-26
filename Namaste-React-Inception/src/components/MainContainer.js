@@ -27,7 +27,7 @@ const MainContainer = () => {
   };
 
   const filterRestList = () => {
-    setRestList(restList?.filter((res) => res?.info?.avgRating > 4));
+    setCpyRestList(cpyRestList?.filter((res) => res?.info?.avgRating > 4));
   };
 
   //conditional rendering
