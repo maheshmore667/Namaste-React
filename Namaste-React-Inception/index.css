@@ -34,7 +34,6 @@
     border-radius: 20px;
     margin-top: 10px;
 }
-
 .resto-card:hover {
     cursor: pointer;
     box-shadow: 2px 5px gray;
@@ -74,4 +73,23 @@
 .login-btn {
     border-radius: 5px;
     padding: 2px 5px;
+}
+.resto-item-container {
+    width: 97%;
+    margin: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    
+   
+}
+.resto-heading {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(190, 133, 244);
+    border-radius: 20px;
+}
+.menu-container{
+    border-radius: 15px;
+    border: 2px solid rgb(190, 133, 244);
 }

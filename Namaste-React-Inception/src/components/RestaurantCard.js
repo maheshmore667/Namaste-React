@@ -11,7 +11,7 @@ const RestaurantCard = (props) => {
             <h3 className="resto-name">
               <b>{name}</b>
             </h3>
-            <span className="resto-about">{avgRating}Stars</span>
+            <span className="resto-about">{avgRating}<span className="fa fa-star checked"></span></span>
             <span className="resto-about">
               <b>{costForTwo}</b>
             </span>

@@ -1,12 +1,13 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import ShimmerUI from "./ShimmerUI";
+import {useNavigate} from "react-router-dom"
 
 const MainContainer = () => {
   const [restList, setRestList] = useState([]);
   const [cpyRestList, setCpyRestList] = useState([]);
   const [searchText, setSearchText] = useState("");
-
+  const navigate = useNavigate();
   useEffect(() => {
     fetchRestaurantList();
   }, []);
@@ -16,19 +17,36 @@ const MainContainer = () => {
       "https://corsproxy.io/?https://www.swiggy.com/mapi/homepage/getCards?lat=18.5538241&lng=73.9476689"
     );
     data = await data.json();
-    setRestList(
-      data?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-    setCpyRestList(
-      data?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
+    if(data?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
+      ?.restaurants){
+      setRestList(
+        data?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+      setCpyRestList(
+        data?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+    } else {
+      setRestList(
+        data?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+      setCpyRestList(
+        data?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+    }
+    
   };
 
   const filterRestList = () => {
     setCpyRestList(cpyRestList?.filter((res) => res?.info?.avgRating > 4));
   };
+
+  const routeToRestro = (id) =>{
+    navigate(`/restro/${id}`);
+  }
 
   if(restList.length === 0 ){
     return  <ShimmerUI />
@@ -67,10 +85,11 @@ const MainContainer = () => {
 
       <div className="main-container">
         {cpyRestList?.map((restaurant) => (
-          <RestaurantCard
-            key={restaurant?.info?.id}
-            restdata={restaurant?.info}
-          />
+          <div  key={restaurant?.info?.id}
+          onClick={()=>{(routeToRestro(restaurant?.info?.id))}}>
+            <RestaurantCard
+            restdata={restaurant?.info}/>
+            </div>
         ))}
       </div>
     </div>
