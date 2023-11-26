@@ -17,11 +17,11 @@ const MainContainer = () => {
     );
     data = await data.json();
     setRestList(
-      data?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
+      data?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
         ?.restaurants
     );
     setCpyRestList(
-      data?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
+      data?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
         ?.restaurants
     );
   };
@@ -30,10 +30,12 @@ const MainContainer = () => {
     setCpyRestList(cpyRestList?.filter((res) => res?.info?.avgRating > 4));
   };
 
+  if(restList.length === 0 ){
+    return  <ShimmerUI />
+  }
+
   //conditional rendering
-  return restList.length === 0 ? (
-    <ShimmerUI />
-  ) : (
+  return  (
     <div className="body-content">
       <div style={{ display: "flex", justifyContent: "end" }}>
         <input
