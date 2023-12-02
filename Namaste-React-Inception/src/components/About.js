@@ -14,7 +14,7 @@ const About = () =>{
               <p>My name is Mahesh More. having total strong experience of 4+ years building Single page application using (MEAN /MERN) stack.</p>
               <p>Sweet and simple intro I guess!!</p>
             <div className="data">
-            <SkillInfo skill={"React"} excellency={"6"}/>
+            {/* <SkillInfo skill={"React"} excellency={"6"}/> */}
             </div>
           </div>
       </section>
