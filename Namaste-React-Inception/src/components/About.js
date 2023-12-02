@@ -1,5 +1,7 @@
 import "../Styles/About.css";
 import Mahesh from "../Assets/MAHESH.png";
+import SkillInfo from "./SkillInfo";
+
 const About = () =>{
     return (
         <section className="col-12 d-flex flex-column">
@@ -12,7 +14,7 @@ const About = () =>{
               <p>My name is Mahesh More. having total strong experience of 4+ years building Single page application using (MEAN /MERN) stack.</p>
               <p>Sweet and simple intro I guess!!</p>
             <div className="data">
-            {/* <Link to="/" className="hire">Hire Me</Link> */}
+            <SkillInfo skill={"React"} excellency={"6"}/>
             </div>
           </div>
       </section>

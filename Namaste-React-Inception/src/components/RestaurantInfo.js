@@ -1,21 +1,12 @@
-import { useEffect, useState } from "react";
+
 import { useParams } from "react-router-dom";
-import {RESTO_INFO, IMG} from "../Utils/config.js"
+import { IMG} from "../Utils/config.js"
+import useRestoDetails from "../Utils/useRestoDetails.js";
+
 const RestaurantInfo = () =>{
     const params = useParams();
-    const [restoDetails, setRestodetails] = useState({})
-    useEffect(()=>{
-        fetchRestroItem();
-    },[])
+    const restoDetails = useRestoDetails(params?.id);
 
-    const fetchRestroItem = async() =>{
-        const data =  await fetch(`https://corsproxy.io/?${RESTO_INFO}${params?.id}`);
-        const responseData = await data?.json();
-        const {name, cuisines, locality} = responseData?.data?.cards[0]?.card?.card?.info
-        const itemCards = responseData?.data?.cards[3].groupedCard.cardGroupMap.REGULAR.cards[7].card.card.itemCards
-        setRestodetails({name, cuisines, locality, itemCards})
-        console.log(responseData?.data?.cards[3].groupedCard.cardGroupMap.REGULAR.cards[7].card.card.itemCards[0]);
-    }
 
     return (
         <div className="resto-item-container">
