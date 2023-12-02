@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import ShimmerUI from "./ShimmerUI";
 import {useNavigate} from "react-router-dom"
+import useAvailableStatus from "../Utils/useAvailableStatus";
 
 const MainContainer = () => {
   const [restList, setRestList] = useState([]);
@@ -48,11 +49,22 @@ const MainContainer = () => {
     navigate(`/restro/${id}`);
   }
 
+  const isAvailable = useAvailableStatus();
+  
+  if(!isAvailable){
+    return  <h1>Looks like your internet connection is offline! </h1>
+  }
+
+
   if(restList.length === 0 ){
     return  <ShimmerUI />
   }
 
-  //conditional rendering
+
+  if(restList.length === 0 ){
+    return  <ShimmerUI />
+  }
+
   return  (
     <div className="body-content">
       <div style={{ display: "flex", justifyContent: "end" }}>
