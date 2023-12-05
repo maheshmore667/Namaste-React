@@ -93,3 +93,11 @@
     border-radius: 15px;
     border: 2px solid rgb(190, 133, 244);
 }
+.promoted-heading {
+    position: absolute;
+    background: black;
+    color: white;
+    border-radius: 5px;
+    margin: 2px;
+    padding: 5px;
+}
