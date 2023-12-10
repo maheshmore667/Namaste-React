@@ -1,13 +1,14 @@
 import { useParams } from "react-router-dom";
 import useRestoDetails from "../Utils/useRestoDetails.js";
+import { useState } from "react";
 
 import RestaurantCat from "./RestaurantCat.js";
 
 const RestaurantInfo = () => {
   const params = useParams();
   const { restoCatDetails, restoDetails } = useRestoDetails(params?.id);
-  console.log("restoCatDetails: ",restoCatDetails);
-
+  const [showIndex, setShowIndex] = useState(null);
+  console.log(restoCatDetails);
   return (
     <div className="resto-item-container">
       <div className="resto-heading">
@@ -18,8 +19,14 @@ const RestaurantInfo = () => {
         <span style={{ fontSize: "10px" }}> {restoDetails?.locality}</span>
       </div>
       {
-        restoCatDetails?.map((details)=>{
-            return <RestaurantCat details={details} />
+        restoCatDetails?.map((details, index)=>{
+            return <RestaurantCat details={details} 
+            showItems = {index===showIndex ? true : false}
+            setShowIndex = {setShowIndex}
+            index = {index}
+            showIndex = {showIndex}
+            key={`index ${details?.card?.card?.title}`}
+            />
         })
       }
       

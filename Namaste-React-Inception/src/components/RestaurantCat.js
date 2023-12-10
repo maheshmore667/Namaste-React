@@ -1,10 +1,9 @@
 import RestaurantItem from "./ResturantItem";
-import { useState } from "react";
 
-const RestaurantCat = ({ details }) => {
-    const [showItems, setShowItems] = useState(false);
+
+const RestaurantCat = ({ details, showItems, setShowIndex, index, showIndex }) => {
   const togglePallette = () => {
-    showItems ? setShowItems(false) : setShowItems(true);
+    showIndex === index ? setShowIndex(null) : setShowIndex(index);
   };
 
   return (
