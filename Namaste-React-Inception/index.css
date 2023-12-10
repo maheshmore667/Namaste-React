@@ -140,5 +140,13 @@
   .data {
     margin-top: 20px;
   }
+
+  .cat-header {
+    background-color: rgb(216, 206, 206);
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
   
   

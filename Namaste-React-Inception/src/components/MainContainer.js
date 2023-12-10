@@ -20,8 +20,6 @@ const MainContainer = () => {
       "https://corsproxy.io/?https://www.swiggy.com/mapi/homepage/getCards?lat=18.5538241&lng=73.9476689"
     );
     data = await data.json();
-    console.log(data?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
-      ?.restaurants);
     if (
       data?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
         ?.restaurants
