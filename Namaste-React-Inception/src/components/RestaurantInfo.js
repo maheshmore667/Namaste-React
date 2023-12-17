@@ -8,7 +8,7 @@ const RestaurantInfo = () => {
   const params = useParams();
   const { restoCatDetails, restoDetails } = useRestoDetails(params?.id);
   const [showIndex, setShowIndex] = useState(null);
-  console.log(restoCatDetails);
+  //console.log(restoCatDetails);
   return (
     <div className="resto-item-container">
       <div className="resto-heading">
