@@ -9,7 +9,7 @@ const RestaurantItem = ({ itemCards }) => {
     dispatch(addItem(item));
   };
   const handleRemoveItem = (item) => {
-    dispatch(removeItem(item));
+    dispatch(removeItem(item?.card.info.id));
   };
   
 
