@@ -10,14 +10,14 @@ const useRestoDetails = (resId) =>{
     }, []);
 
     const fetchRestroItem = async() =>{
-        const data =  await fetch(`https://corsproxy.io/?${RESTO_INFO}${resId}`);
+        const data =  await fetch(`${RESTO_INFO}${resId}`);
         const responseData = await data?.json();
-        const restoDetailsFiltered =  responseData?.data.cards[3].groupedCard.cardGroupMap.REGULAR.cards?.filter((details)=>{
+        const restoDetailsFiltered =  responseData?.data.cards[5].groupedCard.cardGroupMap.REGULAR.cards?.filter((details)=>{
             return details?.card?.card["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
         })
         setRestoCatDetails(restoDetailsFiltered);
-        const {name, cuisines, locality} = responseData?.data?.cards[0]?.card?.card?.info
-        const itemCards = responseData?.data?.cards[3].groupedCard.cardGroupMap.REGULAR.cards[7].card.card.itemCards
+        const {name, cuisines, locality} = responseData?.data?.cards[2]?.card?.card?.info
+        const itemCards = responseData?.data?.cards[5].groupedCard.cardGroupMap.REGULAR.cards[7].card.card.itemCards
         setRestodetails({name, cuisines, locality, itemCards})
     }
     return {restoCatDetails,restoDetails};

@@ -17,7 +17,7 @@ const MainContainer = () => {
 
   const fetchRestaurantList = async () => {
     var data = await fetch(
-      "https://corsproxy.io/?https://www.swiggy.com/mapi/homepage/getCards?lat=18.5538241&lng=73.9476689"
+      "https://www.swiggy.com/mapi/homepage/getCards?lat=18.5538241&lng=73.9476689"
     );
     data = await data.json();
     if (
